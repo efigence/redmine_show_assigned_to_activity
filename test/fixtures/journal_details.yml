@@ -1,0 +1,29 @@
+---
+journal_details_001:
+  old_value: "1"
+  property: attr
+  id: 1
+  value: "4"
+  prop_key: "status_id"
+  journal_id: 1
+journal_details_002:
+  old_value:
+  property: attr
+  id: 2
+  value: "2"
+  prop_key: "assigned_to_id"
+  journal_id: 1
+journal_details_003:
+  old_value: "2"
+  property: attr
+  id: 3
+  value:
+  prop_key: "assigned_to_id"
+  journal_id: 2
+journal_details_004:
+  old_value:
+  property: attr
+  id: 4
+  value: "2"
+  prop_key: "assigned_to_id"
+  journal_id: 3

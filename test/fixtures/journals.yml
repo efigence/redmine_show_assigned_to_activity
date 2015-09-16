@@ -1,0 +1,22 @@
+---
+journals_001:
+  id: 1
+  created_on: <%= (Date.today-2).to_date.to_s(:db) %>
+  notes: "Change Status And Assigned."
+  user_id: 2
+  journalized_type: Issue
+  journalized_id: 1
+journals_002:
+  id: 2
+  created_on: <%= Date.today.to_date.to_s(:db) %>
+  notes: "Change Assigned to nobody"
+  user_id: 2
+  journalized_type: Issue
+  journalized_id: 1
+journals_003:
+  id: 3
+  created_on: <%= Date.today.to_date.to_s(:db) %>
+  notes: "Change only assigned_to"
+  user_id: 2
+  journalized_type: Issue
+  journalized_id: 1
