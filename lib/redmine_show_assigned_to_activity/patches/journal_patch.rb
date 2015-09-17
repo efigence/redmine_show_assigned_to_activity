@@ -26,7 +26,7 @@ module RedmineShowAssignedToActivity
 
         def event_title
           title = title_for_status if !new_status.blank? && new_assigned.blank?
-          title = title_for_assigned if new_status.blank? && !new_assigned.blank?
+          title = title_for_assigned if new_status.blank? && !new_assigned.blank? && (new_assigned != (true or false))
           title = title_for_assigned_and_status if !new_status.blank? && !new_assigned.blank?
           title = title_for_empty_assigned if title.blank?
           event_conditions
@@ -41,8 +41,16 @@ module RedmineShowAssignedToActivity
         end
 
         def new_assigned
+          old = old_value_for(self.details)
           a = new_value_for('assigned_to_id')
-          a ? User.find(a) : nil
+          a = a ? User.find(a) : nil
+          old || a
+        end
+
+        def old_value_for(field)
+          if field.last.try(:prop_key) == "assigned_to_id"
+            field.last.value.blank?
+          end
         end
 
         def title_for_status
@@ -54,7 +62,11 @@ module RedmineShowAssignedToActivity
         end
 
         def title_for_assigned_and_status
-          "#{issue.tracker} ##{issue.id} (#{new_status}) #{l(:text_assigned_to)}#{new_assigned}"
+          if new_assigned == true
+            "#{issue.tracker} ##{issue.id} (#{new_status}) #{l(:text_assigned_to_nobody)}"
+          else
+            "#{issue.tracker} ##{issue.id} (#{new_status}) #{l(:text_assigned_to)}#{new_assigned}"
+          end
         end
 
         def title_for_empty_assigned

@@ -27,3 +27,17 @@ journal_details_004:
   value: "2"
   prop_key: "assigned_to_id"
   journal_id: 3
+journal_details_005:
+  old_value: "1"
+  property: attr
+  id: 5
+  value: "5"
+  prop_key: "status_id"
+  journal_id: 4
+journal_details_006:
+  old_value: "1"
+  property: attr
+  id: 6
+  value: 
+  prop_key: "assigned_to_id"
+  journal_id: 4

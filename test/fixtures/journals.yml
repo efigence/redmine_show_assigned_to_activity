@@ -20,3 +20,10 @@ journals_003:
   user_id: 2
   journalized_type: Issue
   journalized_id: 1
+journals_004:
+  id: 4
+  created_on: <%= (Date.today-2).to_date.to_s(:db) %>
+  notes: "Change Status And set Assignee to nobody."
+  user_id: 2
+  journalized_type: Issue
+  journalized_id: 1
