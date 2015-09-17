@@ -24,6 +24,7 @@ module RedmineShowAssignedToActivity
       module InstanceMethods
 
         def event_title
+          title = default_title if details.blank?
           title = title_for_status if !new_status.blank? && new_assigned.blank?
           title = title_for_assigned if new_status.blank? && !new_assigned.blank? && (new_assigned != (true or false))
           title = title_for_assigned_and_status if !new_status.blank? && !new_assigned.blank?
@@ -50,6 +51,10 @@ module RedmineShowAssignedToActivity
           if field.last.try(:prop_key) == "assigned_to_id"
             field.last.value.blank?
           end
+        end
+
+        def default_title
+          "#{issue.tracker} ##{issue.id} #{issue.status.try(:name)}: #{issue.subject}"
         end
 
         def title_for_status
