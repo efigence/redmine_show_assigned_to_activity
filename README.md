@@ -17,6 +17,7 @@ Developed and tested on Redmine 3.1.0.
 Just open your project activity page.
 
 Few examples:
+
 1. When you change only status, activity page will shows:
 - Bug #1 (New): Cannot print recipes
 2. When assigned_to will be changed then:
