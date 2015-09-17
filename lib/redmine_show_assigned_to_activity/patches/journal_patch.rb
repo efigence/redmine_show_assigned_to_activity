@@ -1,5 +1,4 @@
 require_dependency 'journal'
-require 'pry'
 module RedmineShowAssignedToActivity
   module Patches
     module JournalPatch
