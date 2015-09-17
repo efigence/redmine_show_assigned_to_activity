@@ -1,4 +1,4 @@
-# Redmine show assigned to activity
+# Redmine show assigned to activity [![Build Status](https://travis-ci.org/efigence/redmine_show_assigned_to_activity.svg)](https://travis-ci.org/efigence/redmine_show_assigned_to_activity)
 
 ### With this plugin project activity list shows the changing users in issues.
 
