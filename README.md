@@ -19,11 +19,11 @@ Just open your project activity page.
 Few examples:
 
 1. When you change only status, activity page will shows:
-- Bug #1 (New): Cannot print recipes
+  - Bug #1 (New): Cannot print recipes
 2. When assigned_to will be changed then:
-- Bug #1 Assignee set to: John Smith
+  - Bug #1 Assignee set to: John Smith
 3. If status and assigned_to will change at the same time, then:
-- Bug #1 (Feedback) Assignee set to: John Smith
+  - Bug #1 (Feedback) Assignee set to: John Smith
 4. When you  set assignee to nobody and status will changed at the same time, then:
-- Bug #1 (Closed) Assignee set to nobody
-q
+  - Bug #1 (Closed) Assignee set to nobody
+
