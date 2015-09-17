@@ -12,7 +12,7 @@ class ActivitiesControllerTest < ActionController::TestCase
     assert_select "a[href='/issues/1#change-1']", :text => "Bug #1 (Feedback) Assignee set to: John Smith"
     assert_select "a[href='/issues/1#change-2']", :text => "Bug #1 Assignee set to nobody"
     assert_select "a[href='/issues/1#change-3']", :text => "Bug #1 Assignee set to: John Smith"
-    assert_select "a[href='/issues/1#change-4']". :text => "Bug #1 (Closed) Assignee set to nobody"
+    assert_select "a[href='/issues/1#change-4']", :text => "Bug #1 (Closed) Assignee set to nobody"
     assert_select "a[href='/issues/1']",          :text => "Bug #1 (New): Cannot print recipes"
   end
 end
