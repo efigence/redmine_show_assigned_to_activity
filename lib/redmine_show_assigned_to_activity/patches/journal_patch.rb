@@ -24,9 +24,9 @@ module RedmineShowAssignedToActivity
       module InstanceMethods
 
         def event_title
-          title = default_title if details.blank?
+          title = default_title if details.blank? || !details.map(&:prop_key).include?("assigned_to_id")
           title = title_for_status if !new_status.blank? && new_assigned.blank?
-          title = title_for_assigned if new_status.blank? && !new_assigned.blank? && (new_assigned != (true or false))
+          title = title_for_assigned if new_status.blank? && !new_assigned.blank? && (new_assigned != "nobody")
           title = title_for_assigned_and_status if !new_status.blank? && !new_assigned.blank?
           title = title_for_empty_assigned if title.blank?
           event_conditions
@@ -47,9 +47,9 @@ module RedmineShowAssignedToActivity
           old || a
         end
 
-        def old_value_for(field)
-          if field.last.try(:prop_key) == "assigned_to_id"
-            field.last.value.blank?
+        def old_value_for(details)
+          if details.map(&:prop_key).include?("assigned_to_id")
+            "nobody" if details.find_by(prop_key: "assigned_to_id").try(:value).blank?
           end
         end
 
@@ -66,7 +66,7 @@ module RedmineShowAssignedToActivity
         end
 
         def title_for_assigned_and_status
-          if new_assigned == true
+          if new_assigned == "nobody"
             "#{issue.tracker} ##{issue.id} (#{new_status}) #{l(:text_assigned_to_nobody)}"
           else
             "#{issue.tracker} ##{issue.id} (#{new_status}) #{l(:text_assigned_to)}#{new_assigned}"
